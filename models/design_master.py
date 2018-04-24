@@ -10,4 +10,3 @@ class DesgnDesgn(models.Model):
                             ('caf','Caf'),
                             ('pocket','pocket')
                             ], string="Design Type")
-     test="hello"
