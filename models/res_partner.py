@@ -15,8 +15,6 @@ class ResPartner(models.Model):
     measurement_count = fields.Integer(compute='_compute_measurement_count', string='# Measurements')
     mobile_num1=fields.Char('Mobile No 1')
     mobile_num2=fields.Char('Mobile No 2')
-    mobile_num3=fields.Char('Mobile No 3')
-    mobile_num4=fields.Char('Mobile No 4')
     address=fields.Char('Address')
     
     def _compute_measurement_count(self):
