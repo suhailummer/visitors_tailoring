@@ -1,0 +1,47 @@
+<odoo>
+    
+    
+    
+	<record id="view_tree_desgn_master" model="ir.ui.view">
+         <field name="name">view.tree.desgn.desgn</field>
+         <field name="model">desgn.desgn</field>
+         <field name="arch" type="xml">
+             <tree string="Desings">
+                 <field name="name"/>
+                 <field name="image"/>
+                 <field name="type"/>
+             </tree>
+         </field>
+     </record>
+     
+	<record id="view_form_desgn_master" model="ir.ui.view">
+         <field name="name">view.tree.desgn.desgn</field>
+         <field name="model">desgn.desgn</field>
+         <field name="arch" type="xml">
+             <form string="Desings">
+                 <group colspan="2" col="6">
+                 <field name="name"/>
+                 <field name="image"/>
+                 <field name="type"/>
+                 </group>
+             </form>
+         </field>
+     </record>		
+	
+    
+            <record model="ir.actions.act_window" id="action_customer_desgn">
+                <field name="name">Designs</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">desgn.desgn</field>
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+            </record>
+        
+            
+         <menuitem name="Desigs"
+            id="main_menu_desgn_master"
+            parent="project.menu_project_config"
+            action="action_customer_desgn"
+            sequence="10"/>
+          
+</odoo>

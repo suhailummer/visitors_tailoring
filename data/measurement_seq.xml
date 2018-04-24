@@ -1,0 +1,10 @@
+<odoo>
+
+    <record id="seq_measurement" model="ir.sequence">
+        <field name="name">measurement.measurement</field>
+        <field name="code">measurement.measurement</field>
+        <field name="prefix">MSR/</field>
+        <field name="padding">5</field>
+    </record>
+    
+</odoo>

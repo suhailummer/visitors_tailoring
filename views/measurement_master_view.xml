@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>	
+        <menuitem name="Tailor Management"
+            id="project.menu_main_pm"
+            groups="project.group_project_manager,project.group_project_user"
+            web_icon="project,static/description/icon.png"
+            sequence="50"/>
+    
+        <menuitem name="Measurement Details"
+            id="menu_project_management_customer_measurment"
+            parent="project.menu_main_pm"
+            sequence="10"/>
+
+		<!-- Form view of Measurement Master -->
+            <record id="view_form_measurement_master" model="ir.ui.view">
+                <field name="name">view.form.measurement.measurement</field>
+                <field name="model">measurement.measurement</field>
+                <field name="arch" type="xml">
+                    <form string="Measurement" version="10.0">
+                        <sheet>
+                            <div class="oe_button_box" name="button_box">
+	                            <button name="toggle_active" type="object" groups="hr.group_hr_user"
+	                                    class="oe_stat_button" icon="fa-archive">
+	                                <field name="active" widget="boolean_button"
+	                                    options='{"terminology": "archive"}'/>
+	                            </button>
+                            </div>
+                            <div class="oe_title">
+	                            <h2>
+	                                <field name="number" readonly="1"/>
+	                            </h2>
+                                <h4>
+                                   <label for="partner_id" class="oe_edit_only"/> <field name="partner_id" placeholder="Either choose One or Create New Customer" help="Customer Name"/>
+                                </h4>
+                            </div>
+                            <newline/>
+                            <field name="date" readonly="1"/>
+                            <group>
+                                  <newline/>
+                                  <field name="phone_number"/>
+                            </group>
+                            <separator string ="Measurement Details" colspan="4"/>
+                            <group colspan="4" col="6">
+                                <field name="length"/>
+                                <field name="body"/>
+                                <field name="body_loose"/>
+                                <field name="bottom"/>
+                                <field name="regal"/>
+                                <field name="shoulder"/>
+                                <field name="hand_length"/>
+                                <field name="sleeve_length"/>
+                                <field name="sleeve_loose"/>
+                                <field name="caf"/>
+                                <field name="neck"/>
+                                <field name="pocket_to_pocket"/>
+                                <field name="pocket_to_pocket2"/>
+                                <newline/>
+                                <field name="fsp" widget="selection"/>
+                                <field name="fs" widget="selection"/>
+                                <field name="fspx" widget="selection"/>
+                            </group>
+                        </sheet>
+                    </form>
+                </field>
+            </record>
+            
+            <!-- Tree view of Measurement Master -->
+            <record id="view_tree_measurement_master" model="ir.ui.view">
+                <field name="name">view.tree.measurement</field>
+                <field name="model">measurement.measurement</field>
+                <field name="arch" type="xml">
+                    <tree string="Measurements">
+                        <field name="number"/>
+                        <field name="partner_id"/>
+                        <field name="phone_number"/>
+                        <field name="date"/>
+                    </tree>
+                </field>
+            </record>
+            
+            <!-- search view for measurement -->
+            
+		    <record id="measurement_measurement_search" model="ir.ui.view">
+		        <field name="name">measurement.measurement.search</field>
+		        <field name="model">measurement.measurement</field>
+		        <field name="arch" type="xml">
+		            <search string="Measurement Search">
+		                <field name="number"/>
+		                <field name="partner_id"/>
+		                <field name="date"/>
+		                <field name="phone_number"/>
+		                <group  expand='0' string='Group by...'>
+		                    <filter string='Partner' name="partner_measurement" context="{'group_by': 'partner_id'}"/>
+		                    <filter string='Date' context="{'group_by' : 'date'}"/>
+		                </group>
+		            </search>
+		        </field>
+		    </record>
+            
+            
+            <record model="ir.actions.act_window" id="action_customer_measurment">
+		        <field name="name">Measurements</field>
+		        <field name="type">ir.actions.act_window</field>
+		        <field name="res_model">measurement.measurement</field>
+		        <field name="view_type">form</field>
+		        <field name="view_mode">tree,form</field>
+            </record>
+            
+            <record id="action_view_customer_measurment" model="ir.actions.act_window">
+            <field name="name">Measurements</field>
+            <field name="res_model">measurement.measurement</field>
+            <field name="view_mode">tree,form</field>
+            <!-- <field name="context">{'search_default_partner_measurement': 1}</field> -->
+            <field name="search_view_id" ref="measurement_measurement_search"/>
+            <field name="help" type="html">
+                <p>
+                    Create the measurements of customers. 
+                </p>
+            </field>
+        </record>
+
+            <menuitem action="action_customer_measurment" id="menu_action_estimation_task_view" 
+             parent="menu_project_management_customer_measurment" sequence="10"/>
+</odoo>
