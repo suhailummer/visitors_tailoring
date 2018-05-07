@@ -12,7 +12,6 @@ class MeasurementMeasurement(models.Model):
     _name = "measurement.measurement"
     _description = "Measurements"
     _rec_name = 'number'
-
     number = fields.Char(string='Measurement No.')
     partner_id = fields.Many2one('res.partner', "Customer")
     phone_number = fields.Char(

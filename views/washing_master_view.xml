@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+            
+            
+    <record model="ir.ui.view" id="partner_id">
+		<field name="name">washing.washing</field>
+		<field name="model">project.task</field>
+	    <field name="inherit_id" ref="project.view_task_form2"></field>
+	    <field name="arch" type="xml">
+	        
+                <xpath expr="//field[@name='tag_ids']" position="after">
+                    <field name="washing_chrg"/>
+                        </xpath>
+                        <xpath expr="/form/*" position="inside">
+                            <button name="service_washing" class="oe_button oe_form_button oe_highlight" string="Service Finished" type='object'/>
+                        </xpath>
+                       </field>
+                       </record>
+                           
+        
+        <record id="tailor_washing_action" model="ir.actions.act_window">
+            <field name="name">washing</field>
+            <field name="res_model">project.task</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,form</field>
+        </record>
+       
+       <menuitem name="Washing" id="washing_view" parent="project.menu_project_management" action="tailor_washing_action" />  
+
+
+
+
+</odoo>
+
+
+
+
+
+

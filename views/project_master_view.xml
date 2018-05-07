@@ -1,0 +1,21 @@
+<odoo>
+
+<record model="ir.ui.view" id="project_id">
+		<field name="name">washing.washing</field>
+		<field name="model">project.project</field>
+	    <field name="inherit_id" ref="project.edit_project"></field>
+	    <field name="arch" type="xml">
+	        
+               <xpath expr="//page[1]" position="after">
+		              <page string="Additional Charges">
+		                        <field name="additional_chrg">
+                                  <tree editable="bottom">
+                                   <field name="washing_chrg"/> 
+                                 </tree>
+                                 </field>
+                                 </page>
+                         </xpath>
+                
+          </field>
+        </record>
+        </odoo>

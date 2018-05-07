@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>	
+    
+    <record model="ir.ui.view" id="account_invoice_button">
+        <field name="name">sale.order.button.tailor</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"></field>
+        <field name="arch" type="xml">
+            
+              <xpath expr="//field[@name='name']" position="after">
+              <button style="margin-left:700px" 
+                  name="action_view"
+                  string="Project"
+	              class="oe_highlight"
+	              icon="fa-archive"
+	              type="object">
+	              
+	                        
+	                        </button>
+	                        </xpath>
+            
+                   
+            
+        </field>
+    </record>
+    
+</odoo>

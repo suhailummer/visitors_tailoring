@@ -30,7 +30,8 @@
 	                                <field name="number" readonly="1"/>
 	                            </h2>
                                 <h4>
-                                   <label for="partner_id" class="oe_edit_only"/> <field name="partner_id" placeholder="Either choose One or Create New Customer" help="Customer Name"/>
+                                   <label for="partner_id" class="oe_edit_only"/> 
+                                   <field name="partner_id" placeholder="Either choose One or Create New Customer" help="Customer Name"/>
                                 </h4>
                             </div>
                             <newline/>

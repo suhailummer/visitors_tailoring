@@ -16,7 +16,11 @@
                         <field  string="Measurments" name="measurement_count" widget="statinfo"/>
                     </button>
                 </div>
-                
+                <xpath expr="//field[@name='parent_id']" position="before">
+                    <h2>
+                    <field name='seq_number'/>
+                    </h2>
+                </xpath>
                 <xpath expr="//field[@name='fax']" position="replace">
                     <field name='mobile_num1'/>
                     <field name='mobile_num2'/>
